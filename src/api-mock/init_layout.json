@@ -1,0 +1,64 @@
+[
+    {
+        "component": "GridSystem",
+        "id": "xcjkbxwucyvbdskfh",
+        "path": "/app/dashboard",
+        "layout": {
+            "cols": 12,
+            "rowHeight": 30
+        },
+        "grid": [{
+                "id": "aqsdqsdqsd",
+                "component": "jesaispas",
+                "headerTitle": "grid item 1",
+                "itemDisplayParams": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 5,
+                    "static": true
+                }
+            },
+            {
+                "id": "bsdfsdf",
+                "component": "jesaispas",
+                "headerTitle": "grid item 2",
+                "itemDisplayParams": {
+                    "x": 8,
+                    "y": 0,
+                    "w": 4,
+                    "h": 10,
+                    "minW": 2,
+                    "maxW": 4
+                }
+            },
+            {
+                "id": "cksdjcnsl",
+                "component": "jesaispas",
+                "headerTitle": "grid item 3",
+                "itemDisplayParams": {
+                    "x": 0,
+                    "y": 5,
+                    "w": 5,
+                    "h": 5
+                }
+            },
+            {
+                "id": "xlkvjbsdf",
+                "component": "jesaispas",
+                "headerTitle": "grid item 4",
+                "itemDisplayParams": {
+                    "x": 9,
+                    "y": 6,
+                    "w": 2,
+                    "h": 6
+                }
+            }
+        ]
+    },
+    {
+        "component": "ActionBuilder",
+        "id": "qskdnqjkhdsdfs",
+        "path": "/app/ActionBuilder"
+    }
+]

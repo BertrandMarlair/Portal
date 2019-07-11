@@ -1,0 +1,11 @@
+{
+    "1": [{"itemLabel": "T-shirt", "itemValue": "tshirt"}, {"itemLabel": "Pen tray", "itemValue": "tray"}],
+    "2": [
+        {"itemLabel": "3 months for free", "itemValue": "3months"}, 
+        {"itemLabel": "iPad mini", "itemValue": "ipadmini"}, 
+        {"itemLabel": "Hawei P20 phone", "itemValue": "hawp20"}
+    ],
+    "3": [
+        {"itemLabel": "Macbook Pro 13", "itemValue": "mbp13"}
+    ]
+}

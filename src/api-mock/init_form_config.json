@@ -1,0 +1,55 @@
+{
+    "formLabel": "Clients form",
+    "fields": [
+        {"key": "name", "label": "Name", "fieldType": "StringInput",
+            "validate": {
+                "required": {"expect": true, "instruction": "name is required"}
+            }
+        },
+        {"key": "email", "label": "Email", "fieldType": "StringInput", "value": "lol@lol.cm",
+            "validate": {
+                "required": {"instruction": "email is required"},
+                "regEx": {"expect": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", "instruction": "invalide email"}
+            }
+        },
+        {"key": "birthday", "label": "Birthday", "fieldType": "DateField",
+            "validate": {
+                "required": {"instruction": "birthday is required"},
+                "max": {
+                    "expect": "20110707", "instruction": "you must be 18 to subcribe!"
+                },
+                "min": {
+                    "expect": "19190707", "instruction": "Wow, you still alive!?"
+                }
+            }
+        },
+        {
+            "key": "pricingPlan", 
+            "label": "Pricing Plan", 
+            "fieldType": "RadioButtons",
+            "selection": [{"itemLabel": "Basic", "itemValue": "1"}, {"itemLabel": "Pro", "itemValue": "2"}, {"itemLabel": "Enterprise", "itemValue": "3"}], 
+            "validate": {
+                "required": {"instruction": "a pricing must be selected"}
+            }
+        },
+        {
+            "key": "planGift", 
+            "label": "Gifts with your pricing plan", 
+            "fieldType": "RadioButtons",
+            "selection": [],
+            "dependency": {"keyName": "pricingPlan", "selectionSrc": "/fetchPringGifts/"},
+            "validate": {
+                "required": {"instruction": "Sure you don't want a gift?"}
+            }
+        },
+        {
+            "key": "compliedToTermsheet", 
+            "label": "Accepted terms and condition", 
+            "fieldType": "CheckBox", 
+            "description": "This is our terms and condition for the offered service", 
+            "validate": {
+                "mustOptIn": {"instruction": "You must comply to continue"}
+            }
+        }
+    ]
+}
