@@ -59,7 +59,7 @@ const Display = ({itemsArray, classes}) => {
             return (
                 <Fragment key={ item.id }>
                     <Link
-                        style={{ paddingLeft: 10 * iteration }}
+                        style={{ paddingLeft: 15 * iteration }}
                         to={ item.url }
                         className={ classes.links }>
                         <ListItem 

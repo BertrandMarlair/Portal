@@ -16,7 +16,15 @@ const GridSystem = props => (
 
 const Container = ({classes, grid, layout}) => {
     const dashboardLayoutEL = useRef(null);
+
     const [ dashboardSise,  setDashboardSize ] = useState(0)
+    const [ gridLayout, setGridLayout ] = useState(
+        [
+            { i: 'a', x: 0, y: 0, w: 5, h: 8, static: false },
+            { i: 'b', x: 0, y: 6, w: 4, h: 3, minW: 2, maxW: 4, static: false },
+            { i: 'c', x: 4, y: 0, w: 10, h: 6, static: false }
+        ]
+    )
 
     useEffect(() => {
         setDashboardSize(dashboardLayoutEL.current.clientWidth)
@@ -30,17 +38,32 @@ const Container = ({classes, grid, layout}) => {
         setDashboardSize(dashboardLayoutEL.current.clientWidth)
     }
 
+    console.table(layout)
+
     return (
         <div ref={dashboardLayoutEL}>
+            <div onClick={() => setGridLayout([
+                { i: 'a', x: 0, y: 0, w: 5, h: 8, static: true },
+                { i: 'b', x: 0, y: 6, w: 4, h: 3, minW: 2, maxW: 4, static: true },
+                { i: 'c', x: 4, y: 0, w: 10, h: 6, static: true }
+            ])}>
+                change layout
+            </div>
             <GridLayout 
                 className="layout" 
                 cols={layout.cols} 
                 rowHeight={layout.rowHeight} 
                 width={dashboardSise} 
-            >
-                {grid.map(item => (
-                    <Paper className={classes.girdLayoutItem} key={`userId/${item.id}`} data-grid={{...item.itemDisplayParams}}>
-                        {item.headerTitle}
+                layout={gridLayout}
+                draggableHandle={"header, header *"}
+                        >
+                {gridLayout.map(item => (
+                    <Paper 
+                        className={classes.girdLayoutItem} 
+                        key={`${item.i}`} 
+                    >
+                        <header>Drag</header>
+                        {item.i}
                         <GriddedDiv />
                     </Paper>
                 ))}
