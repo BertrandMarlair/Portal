@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-
-import DashboardLayout from '../../layouts/Dashboard/Dashboard'
+import { BrowserRouter as Router, Redirect } from 'react-router-dom'
 
 import LoaderScreen from '../../component/CustomLoading/LoaderScreen'
 import DynamicRoute from '../../router/DynamicRoute'
+import ConnectRoute from '../../router/ConnectRoute'
+import connect from '../../router/routerPath/connect'
 import apiMock from '../../api-mock/api-mock'
 
 const RouteProvider = () => {
@@ -23,11 +23,13 @@ const RouteProvider = () => {
 
     return (
         <Router>
-            <DashboardLayout>
-                {layout.map(params => {
-                    return <DynamicRoute {...params} key={params.id} />
-                })}
-            </DashboardLayout>
+            {layout.map(params => {
+                return <DynamicRoute {...params} key={params.id} />
+            })}
+            {connect.map(({ component, name, path, exact }) => {
+                return <ConnectRoute path={path} component={component} key={name} exact={exact} />
+            })}
+            <Redirect to="/app/dashboard" />
         </Router>
     )
 }

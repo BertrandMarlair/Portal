@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import isAuthenticated from '../utils/auth/isAuthenticated'
 import { Redirect } from 'react-router-dom'
 import CustomLoading from '../component/CustomLoading/CustomLoading'
+import DashboardLayout from '../layouts/Dashboard/Dashboard'
 
 const DynamicRoute = ({ component, path, ...rest }) => {
 
@@ -14,10 +15,12 @@ const DynamicRoute = ({ component, path, ...rest }) => {
             render={props =>
                 (isAuthenticated() ? (
                     <Suspense fallback={<CustomLoading />}>
-                        <Page {...rest} {...props} />
+                        <DashboardLayout>
+                            <Page {...rest} {...props} />
+                        </DashboardLayout>
                     </Suspense>
                 ) : (
-                    <Redirect to="/" />
+                    <Redirect to="/connect/login" />
                 ))
             }
         />

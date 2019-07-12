@@ -56,7 +56,7 @@ const Container = ({classes, grid, layout}) => {
                 width={dashboardSise} 
                 layout={gridLayout}
                 draggableHandle={"header, header *"}
-                        >
+            >
                 {gridLayout.map(item => (
                     <Paper 
                         className={classes.girdLayoutItem} 

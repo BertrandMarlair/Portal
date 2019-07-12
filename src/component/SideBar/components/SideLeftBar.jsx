@@ -15,7 +15,7 @@ import { withStyles, Divider, Avatar } from '@material-ui/core'
 import SideBarStyle from '../SideBarStyle'
 import Icon from '../../../component/CustomIcons/Icon'
 
-const SideLeftBar = ({ classes, teams, inviteTeams,  history}) => {
+const SideLeftBar = ({ classes, history}) => {
 
     const dispatch = useDispatch()
 
@@ -25,7 +25,7 @@ const SideLeftBar = ({ classes, teams, inviteTeams,  history}) => {
         localStorage.removeItem('token')
         localStorage.removeItem('tokenRefresh')
         LOGOUT()
-        history.push('/')
+        history.push('/connect/login')
     }
 
     return (
@@ -41,34 +41,9 @@ const SideLeftBar = ({ classes, teams, inviteTeams,  history}) => {
                         alt="logo"
                     />
                 </NavLink>
-                {teams.map(team => (
-                    <Icon 
-                        key={team.id} 
-                        centered 
-                        white 
-                        className={classes.teamIcon}
-                        onClick={() => history.push(`/app/view-team/${team.id}`)}
-                    >
-                        {team.name.charAt(0).toUpperCase()}
-                    </Icon>
-                ))}
                 <Divider />
-                {inviteTeams.map(team => (
-                    <Icon 
-                        key={team.id} 
-                        centered 
-                        white 
-                        className={classes.teamIcon}
-                        onClick={() => history.push(`/app/view-team/${team.id}`)}
-                    >
-                        {team.name.charAt(0).toUpperCase()}
-                    </Icon>
-                ))}
             </div>
             <div className={classes.sideBottom}>
-                <NavLink to={'/app/create-team'}>
-                    <Icon centered white><AddIcon className={classes.icon} /></Icon>
-                </NavLink>
                 <Icon centered white onClick={() => logout()}><LogoutIcon className={classes.icon} /></Icon>
                 <Icon centered white><NotificationsIcon className={classes.icon} /></Icon>
                 <Icon centered white><NotificationsIcon className={classes.icon} /></Icon>

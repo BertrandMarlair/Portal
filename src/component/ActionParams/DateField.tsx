@@ -7,6 +7,7 @@ import DynamicFormStyles from './Styles'
 import { withStyles } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import Input from '../CustomInputs/Input'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,7 +37,7 @@ const Display = ({field, passedValue, updateField, invalidities}: PropsTextField
 
   return (
     <div>
-      <TextField
+      <Input
         id={key}
         label={label}
         type="date"
